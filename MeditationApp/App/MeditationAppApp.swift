@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct MeditationAppApp: App {
+    @StateObject private var coordinator = NavigationCoordinator()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationWrapperView()
+                .environmentObject(coordinator).ignoresSafeArea()
         }
     }
 }
